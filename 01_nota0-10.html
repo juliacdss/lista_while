@@ -6,8 +6,12 @@
     */
 
     //ENTRADA
+    let nota = 0;
     do {
-        let nota = Number(prompt("Informe uma nota entre 0 e 10:"));
+        nota = Number(prompt("Informe uma nota entre 0 e 10:"));
+        if (nota < 0 || nota > 10) {
+            alert("VALOR INVÁLIDO!");
+        }
     } while (nota < 0 || nota > 10);
 
     //PROCESSAMENTO
