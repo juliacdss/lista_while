@@ -7,24 +7,38 @@
     Idade: entre 0 e 150;
     Salário: maior que zero;
     Sexo: 'f' ou 'm';
-    Estado Civil: 's', 'c', 'v', 'd';
+    Estado Civil: 's', 'c', 'v', 'd';''
     */
 
     //ENTRADA
+
     let nome = "";
-    let idade = 0;
-    let salario = 0;
+    let idade = "";
+    let salario = "";
     let sexo = "";
     let estadoCivil = "";
 
     //PROCESSAMENTO
+
     do {
-        nome = prompt("Informe seu nome:");
-        idade = Number(prompt("Informe sua idade:"));
-        salario = Number(prompt("Informe seu salário:"));
-        sexo = prompt("Informe seu sexo (f/m):").toLowerCase();
-        estadoCivil = prompt("Informe seu estado civil (s/c/v/d):").toLowerCase();
-    } while (nome.length > 3 && idade < 0 && idade > 150 && salario < 0 && sexo != "f" , "m" && estadoCivil != "s" , "c" , "v" , "d"); 
+        nome = prompt(`Informe seu nome: `);
+    } while (nome.length <= 3);
+
+    do {
+        idade = Number(prompt(`Informe sua idade: `));
+    } while (idade < 0 || idade > 150);
+
+    do {
+        salario = Number(prompt(`Informe seu salário: `));
+    } while (salario <= 0);
+
+    do {
+        sexo = prompt(`Informe seu sexo: F/M`).toLowerCase();
+    } while (sexo !== 'f' && sexo !== 'm');
+
+    do {
+        estadoCivil = prompt(`Informe seu estado civil: s (solteiro), c (casado), v (viúvo), d (divorciado)`).toLowerCase();
+    } while (!['s', 'c', 'v', 'd'].includes(estadoCivil));
 
     //SAÍDA
 
