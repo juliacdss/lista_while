@@ -20,11 +20,68 @@
     */
 
     //ENTRADA
-
+    let votosJoaozinho = 0;
+    let votosMariazinha = 0;
+    let votosNulo = 0;
+    let votosBranco = 0;
+    let totalVotos = 0;
+    let voto;
 
     //PROCESSAMENTO
+    do {
+        voto = parseInt(prompt(
+            "As opções são:\n" +
+            "1. Candidato Joãozinho\n" +
+            "2. Candidato Mariazinha\n" +
+            "3. Nulo\n" +
+            "4. Branco\n" +
+            "0. Encerrar votação\n" +
+            "Entre com o seu voto:"));
 
+        switch (voto) {
+            case 1:
+                votosJoaozinho++;
+                break;
+            case 2:
+                votosMariazinha++;
+                break;
+            case 3:
+                votosNulo++;
+                break;
+            case 4:
+                votosBranco++;
+                break;
+            case 0:
+                break;
+            default:
+                alert("Voto inválido! Tente novamente.");
+                continue;
+        }
+
+        if (voto !== 0) {
+            totalVotos++;
+        }
+    } while (voto !== 0);
+
+    // Cálculo das porcentagens
+    let percentualNulo = (votosNulo / totalVotos) * 100 || 0;
+    let percentualBranco = (votosBranco / totalVotos) * 100 || 0;
+
+    // Determinar o vencedor
+    let vencedor = "Empate";
+    if (votosJoaozinho > votosMariazinha) {
+        vencedor = "Joãozinho";
+    } else if (votosMariazinha > votosJoaozinho) {
+        vencedor = "Mariazinha";
+    }
 
     //SAÍDA
-
+    document.write(
+        "RESULTADO:\n" +
+        "Joãozinho: " + votosJoaozinho + " votos\n" +
+        "Mariazinha: " + votosMariazinha + " votos\n" +
+        "Nulos: " + votosNulo + " votos (" + percentualNulo.toFixed(2) + "%)\n" +
+        "Brancos: " + votosBranco + " votos (" + percentualBranco.toFixed(2) + "%)\n" +
+        "Vencedor: " + vencedor
+    );
 </script>
